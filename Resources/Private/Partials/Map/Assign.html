@@ -1,6 +1,6 @@
 {namespace gomapsext=Clickstorm\GoMapsExt\ViewHelpers}
 
-<gomapsext:script>
+<gomapsext:script xmlns:f="http://www.w3.org/1999/xhtml">
 (function ($, window, document, undefined) {
    $(function () {
     var gme = new Object();
@@ -22,6 +22,7 @@
             zoom: {f:if(condition:"{map.zoom}", then:"{map.zoom}", else:"0")},
             minZoom: {f:if(condition:"{map.zoomMin}", then:"{map.zoomMin}", else:"0")},
             maxZoom: {f:if(condition:"{map.zoomMax}", then:"{map.zoomMax}", else:"0")},
+            clickZoom: {f:if(condition:"{map.zoomClick}", then:"{map.zoomClick}", else:"0")},
             kmlUrl: '{map.kmlUrl}',
             kmlPreserveViewport: {f:if(condition:"{map.kmlPreserveViewport}", then:"true", else:"false")},
             kmlLocal: {f:if(condition:"{map.kmlLocal}", then:"1", else:"0")},
@@ -33,7 +34,6 @@
             markerClusterSize: {f:if(condition:"{map.markerClusterSize} > 0", then:"{map.markerClusterSize}", else:"null")},
             markerSearch: {f:if(condition:"{map.markerSearch}", then:"1", else:"0")},
             defaultType: {map.defaultType},
-            panControl: {f:if(condition:"{map.panControl}", then:"1", else:"0")},
             scaleControl: {f:if(condition:"{map.scaleControl}", then:"1", else:"0")},
             streetviewControl: {f:if(condition:"{map.streetviewControl}", then:"1", else:"0")},
             zoomControl: {f:if(condition:"{map.zoomControl}", then:"1", else:"0")},
@@ -88,7 +88,17 @@
             </f:if>
             imageWidth: {address.imageWidth},
             imageHeight: {address.imageHeight},
-            infoWindowContent: '<f:format.raw><gomapsext:escape><f:format.html>{address.infoWindowContent}</f:format.html></gomapsext:escape></f:format.raw>',
+            infoWindowContent: '<f:format.raw><gomapsext:escape><f:format.html>{address.infoWindowContent}</f:format.html>
+                    <f:if condition="{address.infoWindowImages}">
+                        <div class="outer">
+                            <f:for each="{address.infoWindowImages}" as="infoWindowImage">
+                                <div class="inner">
+                                    <f:image image="{infoWindowImage}" title="{address.title}" alt="{address.title}" maxWidth="{settings.infoWindow.imageWidth}" />
+                                </div>
+                            </f:for>
+                        </div>
+                    </f:if>
+                </gomapsext:escape></f:format.raw>',
             infoWindowLink: {address.infoWindowLink},
             <f:if condition="{settings.infoWindow.openByClick}">
                 <f:then>

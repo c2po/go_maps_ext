@@ -102,6 +102,13 @@ class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     protected $infoWindowLink;
     /**
+     * infoWindowImages
+     *
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
+     * @lazy
+     */
+    protected $infoWindowImages;
+    /**
      * closeByClick
      *
      * @var boolean
@@ -158,6 +165,7 @@ class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
          * You may modify the constructor of this class instead
          */
         $this->categories = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->infoWindowImages = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
         $this->map = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
     }
 
@@ -400,6 +408,40 @@ class Address extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setInfoWindowLink($infoWindowLink)
     {
         $this->infoWindowLink = $infoWindowLink;
+    }
+
+    /**
+     * Set images
+     *
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+     */
+    public function getInfoWindowImages()
+    {
+        return $this->infoWindowImages;
+    }
+
+    /**
+     * Gets images
+     *
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $infoWindowImages
+     * @return void
+     */
+    public function setInfoWindowImages($infoWindowImages)
+    {
+        $this->infoWindowImages = $infoWindowImages;
+    }
+
+    /**
+     * Add a Fal media file reference
+     *
+     * @param FileReference $falMedia
+     */
+    public function addInfoWindowImage(FileReference $infoWindowImage)
+    {
+        if ($this->getInfoWindowImages() === null) {
+            $this->infoWindowImages = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        }
+        $this->infoWindowImages->attach($infoWindowImage);
     }
 
     /**

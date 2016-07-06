@@ -24,7 +24,6 @@
 			draggable: gme.mapSettings.draggable,
 			disableDoubleClickZoom: gme.mapSettings.doubleClickZoom,
 			scrollwheel: gme.mapSettings.scrollZoom,
-			panControl: gme.mapSettings.panControl,
 			scaleControl: gme.mapSettings.scaleControl,
 			streetViewControl: gme.mapSettings.streetviewControl,
 			zoomControl: gme.mapSettings.zoomControl,
@@ -304,6 +303,11 @@
 	function focusAddress(addressUid, $element, gme) {
 		$.each($element.data("markers"), function(key, marker) {
 			if(marker.uid == addressUid) {
+				if (gme.mapSettings.clickZoom > 0) {
+					gme.mapSettings.zoom = gme.mapSettings.clickZoom;
+					$element.data("map").initZoom = 1;
+					$element.data("map").setZoom(gme.mapSettings.clickZoom);
+				}
 				$element.data("center", marker.position);
 				if(marker.infoWindow) {
                     marker.infoWindow.setContent(marker.infoWindowContent);
@@ -474,4 +478,5 @@
 			});
 		}
 	}
+
 }(jQuery));

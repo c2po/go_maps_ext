@@ -303,6 +303,9 @@
 		<trans-unit id="tx_gomapsext_domain_model_map.zoom_min">
 			<source>Zoom min</source>
 		</trans-unit>
+		<trans-unit id="tx_gomapsext_domain_model_map.zoom_click">
+			<source>Zoom on click in addresslist</source>
+		</trans-unit>
 		</body>
 	</file>
 </xliff>

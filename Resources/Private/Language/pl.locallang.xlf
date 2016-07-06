@@ -108,10 +108,6 @@
 			<source>mapTypes</source>
 			<target>mapTypes</target>
 		</trans-unit>
-		<trans-unit id="tx_gomapsext_domain_model_map.pan_control" approved="yes">
-			<source>panControl</source>
-			<target>panControl</target>
-		</trans-unit>
 		<trans-unit id="tx_gomapsext_domain_model_map.scale_control" approved="yes">
 			<source>scaleControl</source>
 			<target>scaleControl</target>

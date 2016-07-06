@@ -44,6 +44,10 @@
 			<source>Map</source>
 			<target>Karte</target>
 		</trans-unit>
+		<trans-unit id="tx_gomapsext_flexform_settings.open_poi" approved="yes">
+			<source>open POI</source>
+			<target>geöffneter POI</target>
+		</trans-unit>
 		<trans-unit id="tx_gomapsext_partials_map_assign.alert" approved="yes">
 			<source>Please enter a valid address.</source>
 			<target>Bitte geben Sie eine gültige Adresse ein.</target>

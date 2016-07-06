@@ -47,6 +47,9 @@
 		<trans-unit id="tx_gomapsext_domain_model_address.marker">
 			<source>marker</source>
 		</trans-unit>
+		<trans-unit id="tx_gomapsext_domain_model_address.info_window_images">
+			<source>images</source>
+		</trans-unit>
 		<trans-unit id="tx_gomapsext_domain_model_address.open_by_click">
 			<source>openByClick</source>
 		</trans-unit>
@@ -85,9 +88,6 @@
 		</trans-unit>
 		<trans-unit id="tx_gomapsext_domain_model_map.map_types">
 			<source>mapTypes</source>
-		</trans-unit>
-		<trans-unit id="tx_gomapsext_domain_model_map.pan_control">
-			<source>panControl</source>
 		</trans-unit>
 		<trans-unit id="tx_gomapsext_domain_model_map.scale_control">
 			<source>scaleControl</source>
@@ -148,6 +148,9 @@
 		</trans-unit>
 		<trans-unit id="tx_gomapsext_flexform_settings.map">
 			<source>Map</source>
+		</trans-unit>
+		<trans-unit id="tx_gomapsext_flexform_settings.open_poi">
+			<source>open POI</source>
 		</trans-unit>
 		<trans-unit id="tx_gomapsext_partials_map_assign.alert">
 			<source>Please enter a valid address.</source>

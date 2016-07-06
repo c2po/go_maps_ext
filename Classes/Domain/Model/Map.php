@@ -74,6 +74,12 @@ class Map extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     protected $zoomMax;
     /**
+     * zoomClick
+     *
+     * @var \integer
+     */
+    protected $zoomClick;
+    /**
      * addresses
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Clickstorm\GoMapsExt\Domain\Model\Address>
@@ -158,12 +164,6 @@ class Map extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var \integer
      */
     protected $defaultType;
-    /**
-     * panControl
-     *
-     * @var boolean
-     */
-    protected $panControl = false;
     /**
      * scaleControl
      *
@@ -405,6 +405,27 @@ class Map extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setZoomMax($zoomMax)
     {
         $this->zoomMax = $zoomMax;
+    }
+
+    /**
+     * Returns the zoomClick
+     *
+     * @return \integer $zoomClick
+     */
+    public function getZoomClick()
+    {
+        return $this->zoomClick;
+    }
+
+    /**
+     * Sets the zoomClick
+     *
+     * @param \integer $zoomClick
+     * @return void
+     */
+    public function setZoomClick($zoomClick)
+    {
+        $this->zoomClick = $zoomClick;
     }
 
     /**
@@ -801,37 +822,6 @@ class Map extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setDefaultType($defaultType)
     {
         $this->defaultType = $defaultType;
-    }
-
-    /**
-     * Returns the panControl
-     *
-     * @return boolean $panControl
-     */
-    public function getPanControl()
-    {
-        return $this->panControl;
-    }
-
-    /**
-     * Sets the panControl
-     *
-     * @param boolean $panControl
-     * @return void
-     */
-    public function setPanControl($panControl)
-    {
-        $this->panControl = $panControl;
-    }
-
-    /**
-     * Returns the boolean state of panControl
-     *
-     * @return boolean
-     */
-    public function isPanControl()
-    {
-        return $this->getPanControl();
     }
 
     /**

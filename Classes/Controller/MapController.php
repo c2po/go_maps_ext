@@ -86,9 +86,11 @@ class MapController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 		}
 
 		if ($this->extConf['include_manually'] != 1) {
+			//TODO replace by .min.js
+			//Resources/Public/Scripts/markerclusterer_compiled.js
 			$scripts[] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath(
 					$this->request->getControllerExtensionKey()
-				) . 'Resources/Public/Scripts/markerclusterer_compiled.js';
+			) . 'Resources/Public/Scripts/js_marker_clusterer/markerclusterer.js';
 
 			$scripts[] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath(
 					$this->request->getControllerExtensionKey()
@@ -118,6 +120,16 @@ class MapController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 			$addresses = $this->addressRepository->findAllAddresses($map, $pid);
 		} else {
 			$addresses = $map->getAddresses();
+		}
+
+		// find address and set opened
+		if ($this->settings['openpoi']) {
+			foreach ($addresses as $address) {
+				if ($address->getUid() == $this->settings['openpoi']) {
+					$address->setOpened(TRUE);
+					break;
+				}
+			}
 		}
 
 		// get categories

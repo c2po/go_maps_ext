@@ -32,7 +32,7 @@ return array(
 		                          class, width, height, zoom, zoom_min, zoom_max, addresses, kml_url, kml_local, show_route,
 		                          calc_route, scroll_zoom, draggable, double_click_zoom, marker_cluster,
 		                          marker_cluster_zoom, marker_cluster_size, marker_search, default_type,
-		                          pan_control, scale_control, streetview_control, zoom_control, zoom_control_type,
+		                          scale_control, streetview_control, zoom_control, zoom_control_type,
 		                          map_type_control, map_types, styled_map_name, styled_map_code',
 	),
 	'types' => array(
@@ -56,9 +56,9 @@ return array(
 					sys_language_uid, l10n_parent, l10n_diffsource, hidden, --palette--;;time')
 	),
 	'palettes' => array(
-        'address_interaction' => array('showitem' => 'marker_search, show_addresses, show_categories'),
+        'address_interaction' => array('showitem' => 'marker_search, show_addresses, show_categories, zoom_click'),
 		'cluster' => array('showitem' => 'marker_cluster, --linebreak--, marker_cluster_zoom, marker_cluster_size'),
-		'controls' => array('showitem' => 'pan_control, scale_control, streetview_control'),
+		'controls' => array('showitem' => 'scale_control, streetview_control'),
 		'interaction' => array('showitem' => 'scroll_zoom, draggable, double_click_zoom'),
 		'kml' => array('showitem' => 'kml_url, --linebreak--, kml_preserve_viewport, kml_local'),
 		'map_control' => array('showitem' => 'map_type_control, --linebreak--, map_types'),
@@ -196,6 +196,15 @@ return array(
 		'zoom_max' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:go_maps_ext/Resources/Private/Language/locallang_db.xlf:tx_gomapsext_domain_model_map.zoom_max',
+			'config' => array(
+				'type' => 'input',
+				'size' => 4,
+				'eval' => 'int'
+			),
+		),
+		'zoom_click' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:go_maps_ext/Resources/Private/Language/locallang_db.xlf:tx_gomapsext_domain_model_map.zoom_click',
 			'config' => array(
 				'type' => 'input',
 				'size' => 4,
@@ -363,14 +372,6 @@ return array(
 				),
 				'eval' => '',
 				'default' => 0
-			),
-		),
-		'pan_control' => array(
-			'exclude' => 1,
-			'label' => 'LLL:EXT:go_maps_ext/Resources/Private/Language/locallang_db.xlf:tx_gomapsext_domain_model_map.pan_control',
-			'config' => array(
-				'type' => 'check',
-				'default' => 1
 			),
 		),
 		'scale_control' => array(
